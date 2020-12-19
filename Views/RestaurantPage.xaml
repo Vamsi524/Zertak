@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileGuide.Views.RestaurantPage"
+             Title="Restaurants">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="restaurant_stack" IsVisible="true" BackgroundColor="White">
+                <ListView x:Name="restaurantsListView" BackgroundColor="White" HasUnevenRows="true" SeparatorColor="White" ItemSelected="Handle_SelectedRestaurant" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="Gray" CornerRadius="10" Margin="10,5,10,5" HasShadow="True">
+                                    <Grid BackgroundColor="Silver">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Grid.Column="0" Source="{Binding RestaurantImage}" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="64" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding RestaurantName}" TextColor="Black" Margin="0, 10"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding branch_name}" TextColor="Black" Margin="0, 10"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout Orientation="Horizontal">
+                        </StackLayout>
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
